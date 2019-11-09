@@ -29,6 +29,8 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 > Answer:
 
+If an application is built to utilize client side routing this means that it will not require the server to constantly send out code based on how the user is interacting with the sight. This means all of the user's interactions will be handled by the code that has already been sent to the DOM.
+
 ## Project Set Up
 
 Follow these steps to set up and work on your project:
