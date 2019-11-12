@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import CharacterCard from "./CharacterCard.js";
+import SearchForm from "./SearchForm.js";
 
 export default function CharacterList() {
   const [element, setElement] = useState([]);
@@ -10,6 +11,7 @@ export default function CharacterList() {
         .get('https://rick-api.herokuapp.com/api/character/')
   
         .then(response => {
+          console.log(response);
           setElement(response.data.results);
         })
   
@@ -22,6 +24,7 @@ export default function CharacterList() {
 
   return (
     <section className="character-list">
+      <SearchForm/>
       <h2>{element.map(value =>(
       <CharacterCard 
       id={value.id}

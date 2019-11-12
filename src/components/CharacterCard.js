@@ -23,5 +23,4 @@ const CharacterCard = props => {
     </WrapperDiv>
  )
 }
-
 export default CharacterCard;
