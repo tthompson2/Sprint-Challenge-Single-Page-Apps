@@ -16,10 +16,15 @@ const CharacterCard = props => {
  return (
 
   <WrapperDiv>
+    <br></br>
     {props.id}
+    <br></br>
     {props.status}
+    <br></br>
     {props.name}
+    <br></br>
     {props.species}
+    <br></br>
     </WrapperDiv>
  )
 }
