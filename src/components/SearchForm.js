@@ -1,19 +1,32 @@
-import React, { useState } from "react";
+import React from "react";
 
 function SearchForm() {
 
-  const [string, setString] = useState({name: "", species: ""});
-
-  const handleNameEntry = event => {
-    setString({...string, name: event.target.value});
-  }
-
-  const handleSpeciesEntry = event => {
-    setString({...string, species: event.target.value});
-  }
-
   const handleSubmission = event => {
     event.preventDefault();
+  }
+
+  const handleSearch = event => {
+
+    let currentString = [];
+    let newString =[];
+
+    if(event.targe.value != "") {
+
+      currentString = this.props.items;
+
+      newString = currentString.filter(item => {
+
+        const lowerCase = item.toLowerCase();
+        const filteredItem = event.target.value;
+        return lowerCase.includes(filteredItem);
+      });
+    } else {
+      newString = this.props.items;
+    }
+    this.setState({
+      filteredItem: newString
+    });
   }
  
   return (
@@ -24,7 +37,8 @@ function SearchForm() {
           <input
           type="text"
           name="name"
-          onChange={event => handleNameEntry(event)}
+          placeholder="Search..."
+          onChange={event => handleSearch(event)}
           />
        </label>
        <label>
@@ -32,7 +46,8 @@ function SearchForm() {
          <input
           type="text"
           species="species"
-          onChange={event => handleSpeciesEntry(event)}
+          placeholder="Search..."
+          onChange={event => handleSearch(event)}
          />
        </label>
      </form>
