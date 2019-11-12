@@ -1,58 +1,49 @@
-import React from "react";
+import React, {useState } from "react";
+import CharacterCard from "./CharacterCard";
 
-function SearchForm() {
+const SearchForm = props =>  {
 
-  const handleSubmission = event => {
-    event.preventDefault();
-  }
+  const [string, setString] = useState([]);
 
-  const handleSearch = event => {
+  const handleName = event => {
 
-    let currentString = [];
-    let newString =[];
-
-    if(event.targe.value != "") {
-
-      currentString = this.props.items;
-
-      newString = currentString.filter(item => {
-
-        const lowerCase = item.toLowerCase();
-        const filteredItem = event.target.value;
-        return lowerCase.includes(filteredItem);
-      });
-    } else {
-      newString = this.props.items;
-    }
-    this.setState({
-      filteredItem: newString
+    let newState = props.element.filter(character => {
+      return character.name.includes(event.target.value)
     });
+
+    setString(newState);
   }
+
+  console.log(props.element)
  
   return (
     <section className="search-form">
-     <form onSubmit={event => handleSubmission(event)}>
-       <label>
-         Name:
+     <form>
+       <label htmlFor="filter">
+         Filter by Name:
           <input
           type="text"
           name="name"
           placeholder="Search..."
-          onChange={event => handleSearch(event)}
+          onChange={handleName}
           />
        </label>
-       <label>
-        Species
-         <input
-          type="text"
-          species="species"
-          placeholder="Search..."
-          onChange={event => handleSearch(event)}
-         />
-       </label>
+       {string.map(value =>(
+      <CharacterCard 
+      id={value.id}
+      status={value.status}
+      name={value.name}
+      species={value.species}
+      />
+      ))}
+       
      </form>
     </section>
   );
 }
+
+//{props.element.filter(value => (
+//event.str.includes(value.name)
+//))}
 
 export default SearchForm;

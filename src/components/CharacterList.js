@@ -24,7 +24,9 @@ export default function CharacterList() {
 
   return (
     <section className="character-list">
-      <SearchForm/>
+      <SearchForm 
+      element={element}
+      />
       <h2>{element.map(value =>(
       <CharacterCard 
       id={value.id}
