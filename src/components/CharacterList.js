@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import CharacterCard from "./CharacterCard";
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
-export default function CharacterList() {
+const CharacterList = props => {
   // TODO: Add useState to track data from useEffect
   const [characters, setCharacters] = useState([]);
 
@@ -25,15 +26,22 @@ export default function CharacterList() {
 
   return (
     <section className="character-list">
-     {characters.map(character=>(
-       <CharacterCard id={character.id}
-       name={character.name}
-       status={character.name}
-       species={character.species}
-       type={character.type}
-       image={character.image}
-       />
-     ))}
+      
+     {characters.map(character=> (
+       <Link to={`character/${character.id}`}>
+        <CharacterDetails key={character.id} character={character} />  
+       </Link>
+       ))
+    }
     </section>
   );
 }
+function CharacterDetails ({character}) {
+  return (
+    <div>
+      <CharacterCard character={character}/>
+    </div>
+  );
+}
+
+export default CharacterList;
