@@ -26,8 +26,14 @@ export default function CharacterList() {
   return (
     <section className="character-list">
      {characters.map(character=>(
-       <CharacterCard character={character}/>
-     ))}0
+       <CharacterCard id={character.id}
+       name={character.name}
+       status={character.name}
+       species={character.species}
+       type={character.type}
+       image={character.image}
+       />
+     ))}
     </section>
   );
 }
