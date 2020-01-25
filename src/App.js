@@ -4,11 +4,13 @@ import CharacterList from "./components/CharacterList.js";
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import WelcomePage from "./components/WelcomePage";
 import IndividualCharacter from "./components/IndividualCharacter.js";
+import SearchForm from "./components/SearchForm.js";
 
 export default function App() {
   return (
     <div>
       <Header/>
+      <SearchForm />
       <Route exact path="/character/:id"
       render={(props) => (
         <IndividualCharacter {...props}/>
