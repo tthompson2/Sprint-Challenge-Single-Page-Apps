@@ -3,6 +3,7 @@ import CharacterCard from "./CharacterCard";
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import SearchForm from "./SearchForm";
+import CharacterDetails from "./CharacterDetails";
 
 const CharacterList = props => {
   // TODO: Add useState to track data from useEffect
@@ -36,13 +37,6 @@ const CharacterList = props => {
       ))
       }
     </section>
-  );
-}
-function CharacterDetails({ character }) {
-  return (
-    <div>
-      <CharacterCard character={character} />
-    </div>
   );
 }
 

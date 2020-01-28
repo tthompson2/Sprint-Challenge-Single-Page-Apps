@@ -6,10 +6,15 @@ export default function SearchForm( props ) {
  
   const [searchItem, setSearchItem] = useState({string: ""});
 
-  //console.log(props.searchValue); // this is the data that needs to be filtered
+  //console.log(props.characters); // this is the data that needs to be filtered
 
   const changeHandler = event => {
-    setSearchItem({...searchItem, [event.target.name]: event.target.value});
+    
+    let newState = props.characters.filter(character => {
+      return character.name.includes(event.target.value);
+    })
+    console.log(newState);
+    setSearchItem(newState);
   }
 
   const handleSubmission = event => {
