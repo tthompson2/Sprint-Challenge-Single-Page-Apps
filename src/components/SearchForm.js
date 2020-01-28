@@ -14,15 +14,14 @@ export default function SearchForm( props ) {
       return character.name.includes(event.target.value);
     })
     console.log(newState);
-    setSearchItem(newState);
+    props.setCharacters(newState);
   }
 
   const handleSubmission = event => {
     event.preventDefault();
     console.log(searchItem.string);
   }
-  
-  let filteredList = [];
+
 
   return (
     <section className="search-form">
@@ -35,7 +34,7 @@ export default function SearchForm( props ) {
      />
      <button onClick={props.memberToEdit}>Submit</button>
      </form>
-     <LocationsList filteredList={filteredList}/>
+     <LocationsList characters={props.characters}/>
     </section>
   );
 }

@@ -28,7 +28,8 @@ const CharacterList = props => {
 
   return (
     <section className="character-list">
-      <SearchForm characters={characters}/>
+      <SearchForm characters={characters}
+      setCharacters={setCharacters}/>
 
       {characters.map(character => (
         <Link to={`character/${character.id}`}>
