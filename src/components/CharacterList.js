@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import CharacterCard from "./CharacterCard";
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import SearchForm from "./SearchForm";
 
 const CharacterList = props => {
   // TODO: Add useState to track data from useEffect
@@ -26,6 +27,7 @@ const CharacterList = props => {
 
   return (
     <section className="character-list">
+      <SearchForm characters={characters}/>
 
       {characters.map(character => (
         <Link to={`character/${character.id}`}>
